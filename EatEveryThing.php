@@ -12,6 +12,7 @@ apiversion=11,12
 class Eat implements Plugin{
 	private $api;
 	private $enabled = true;
+	private $ops = true;
 	public function __construct(ServerAPI $api, $server = false){
 		$this->api = $api;
 	}
@@ -47,6 +48,9 @@ class Eat implements Plugin{
                       $this->enabled = false;
                 }
                   }
+                   
+                   	
+                   
         }
  }
  public function action($data, $event) {
@@ -55,6 +59,9 @@ class Eat implements Plugin{
  			  if($this->enabled == true){
  				$player = $data["player"];
  				$item = $player->getSlot($player->slot);
+ 				$item1 = $data["item"];
+ 				$item2 = $item1->count()
+ 				$item3 = $item1->getID();
  				if($item->getID() === BUCKET and $item->getMetaData() === WATER and $player->entity->getHealth() < 20) {
  					$player->entity->heal(10, "drinking");
  					$player->setSlot($player->slot, BlockAPI::getItem(BUCKET, AIR, 1));
@@ -64,6 +71,14 @@ class Eat implements Plugin{
 				  $player->entity->updateMetadata();
  					$player->setSlot($player->slot, BlockAPI::getItem(BUCKET, AIR, 1));
  				}
+ 				if($item1->getID() === 57 and $item2 =< 4) {
+ 					$player->setArmor(0,$this->api->block->getItem(310));
+ 					$player->setArmor(1,$this->api->block->getItem(311));
+ 				        $player->setArmor(2,$this->api->block->getItem(312));
+ 				        $player->setArmor(3,$this->api->block->getItem(313));
+ 					$player->setSlot($player->slot,$item2-4);
+ 				}
+ 				
  			  //it's not done yet :)
  				
  				
