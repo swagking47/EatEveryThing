@@ -2,14 +2,14 @@
 
 /*
 __PocketMine Plugin__
-name=PickaxeEffects
-description=adds effects to the pickaxe
+name=EatEveryThing
+description=eat anything
 version=1
-author=Swagboy 47
-class=PickaxeEffect
+author=Swagboy47
+class=Eat
 apiversion=11,12
 */
-class PickaxeEffect implements Plugin{
+class Eat implements Plugin{
 	private $api;
 	private $enabled = true;
 	public function __construct(ServerAPI $api, $server = false){
